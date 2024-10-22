@@ -12,6 +12,12 @@ app.use("/", (req, res) => {
   res.sendFile(path.join(__dirname, ".", "build", "index.html"));
 });
 
+app.get("/DroneStudio", (req, res) => {
+  res.sendFile(
+    path.join(__dirname, ".", "build", "Drone_Studio_x86-64-win-gnu.exe")
+  );
+});
+
 // app.post("/contact", (req, res) => {
 //   console.log(req);
 //   const msg = {
