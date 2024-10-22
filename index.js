@@ -8,14 +8,14 @@ const PORT = process.env.PORT || 3001;
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 app.use(express.static(path.join(__dirname, ".", "build")));
 
-app.use("/", (req, res) => {
-  res.sendFile(path.join(__dirname, ".", "build", "index.html"));
-});
-
 app.get("/DroneStudio", (req, res) => {
   res.sendFile(
     path.join(__dirname, ".", "build", "Drone_Studio_x86-64-win-gnu.exe")
   );
+});
+
+app.use("/", (req, res) => {
+  res.sendFile(path.join(__dirname, ".", "build", "index.html"));
 });
 
 // app.post("/contact", (req, res) => {
