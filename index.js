@@ -9,7 +9,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 app.use(express.static(path.join(__dirname, ".", "build")));
 
 app.get("/DroneStudio", (req, res) => {
-  res.type("application/x-msdownload");
+  res.type("application/octet-stream");
+  res.setHeader("Content-Disposition", "attachment; filename=Drone_Studio.exe");
   res.sendFile(
     path.join(__dirname, ".", "build", "Drone_Studio_x86-64-win-gnu.exe")
   );
